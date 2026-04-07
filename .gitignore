@@ -1,0 +1,20 @@
+# Build
+build/
+*.exe
+*.obj
+*.pdb
+*.ilk
+
+# Runtime
+imgui.ini
+phantom_cache.ini
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# Misc
+*.CT
+build_log.txt
+scan_results.csv

@@ -1,0 +1,10 @@
+#pragma once
+#include <windows.h>
+#include <TlHelp32.h>
+#include <time.h>
+#include <fstream>
+#include <iostream>
+#include <locale>
+#include <chrono>
+#include <thread>
+#include "Game.h"

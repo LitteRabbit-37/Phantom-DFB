@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Build
+        run: |
+          mkdir build
+          cl.exe /O2 /EHsc /std:c++17 /utf-8 /W3 /nologo /I"include" /I"vendor" /I"vendor\imgui" src\main.cpp src\game.cpp src\auto_scan.cpp src\overlay.cpp src\vmmProc_rpm.cpp src\pattern_scanner.cpp vendor\imgui\imgui.cpp vendor\imgui\imgui_draw.cpp vendor\imgui\imgui_impl_dx11.cpp vendor\imgui\imgui_impl_win32.cpp vendor\imgui\imgui_tables.cpp vendor\imgui\imgui_widgets.cpp d3d11.lib dwmapi.lib advapi32.lib /Fe:"build\Phantom_DFB.exe" /Fo:"build\\"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Phantom-DFB
+          path: build/Phantom_DFB.exe
