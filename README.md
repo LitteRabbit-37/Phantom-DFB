@@ -37,14 +37,13 @@ Pure `ReadProcessMemory` — no DLL injection, no driver.
 
 ## Build
 
-**Requirements:** CMake 3.16+, MSVC (Visual Studio 2022 Build Tools)
+**Requirements:** MSVC (Visual Studio 2022 Build Tools)
 
 ```bash
-cmake -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build --config Release
+build.bat
 ```
 
-Output: `build/Release/Phantom_DFB.exe`
+Output: `build\Phantom_DFB.exe`
 
 ## Usage
 
